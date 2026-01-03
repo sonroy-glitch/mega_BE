@@ -15,11 +15,11 @@ const transporter = nodemailer.createTransport({
   secure: false, 
   auth: {
     user: "megahertzrobotics@gmail.com",
-    pass: "aapu zbsl xslz xptx",
+    pass: process.env.MAIL_URL,
   },
 });  
 const prisma = new PrismaClient({
-  accelerateUrl: "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfaWQiOjEsInNlY3VyZV9rZXkiOiJza19aQTRPWTVhLUdLRzlxUXlTaWJhNGIiLCJhcGlfa2V5IjoiMDFLRTIxR0ZLOFlNNksyQkpISDBCNEdZR0IiLCJ0ZW5hbnRfaWQiOiI1ZWQ5ZDQzODlkZjg2Mjk0YzFlNjJjZTU1ZjcyZmQ5YWExYzVjY2UxYzk3YzVjZTQ3ZTU1M2VlNTg4MjFjMTRiIiwiaW50ZXJuYWxfc2VjcmV0IjoiZjEwMzQ3ZGQtZjBkNS00ZmZlLTgxMzItMDE3Zjc4NmNjMzVhIn0.JDwP-kQJAzqMTm65O_dqP4VOz_lKfdQ1TmKYU4If8W8",
+  accelerateUrl: process.env.DATABASE_URL,
 }).$extends(withAccelerate())
 const app=express()
 app.use(express.json())
