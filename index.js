@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import nodemailer from "nodemailer";
-import { PrismaClient } from "./index1.js";
+import { PrismaClient } from "./src/generated/prisma/index.js";
 import { withAccelerate } from "@prisma/extension-accelerate";
 // import Date
 const transporter = nodemailer.createTransport({
