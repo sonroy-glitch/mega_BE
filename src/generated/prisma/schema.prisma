@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id            Int    @id @unique @default(autoincrement())
+  name          String
+  email         String @unique
+  purchasedInfo txn[]
+}
+
+model txn {
+  id        Int    @id @unique @default(autoincrement())
+  amount    Int
+  products  String
+  status    String
+  date      String
+  userEmail String
+  buyer     User   @relation(fields: [userEmail], references: [email])
+}

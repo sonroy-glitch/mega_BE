@@ -1,0 +1,1176 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model purchased
+ *
+ */
+export type purchasedModel = runtime.Types.Result.DefaultSelection<Prisma.$purchasedPayload>;
+export type AggregatePurchased = {
+    _count: PurchasedCountAggregateOutputType | null;
+    _avg: PurchasedAvgAggregateOutputType | null;
+    _sum: PurchasedSumAggregateOutputType | null;
+    _min: PurchasedMinAggregateOutputType | null;
+    _max: PurchasedMaxAggregateOutputType | null;
+};
+export type PurchasedAvgAggregateOutputType = {
+    id: number | null;
+    userId: number | null;
+};
+export type PurchasedSumAggregateOutputType = {
+    id: number | null;
+    userId: number | null;
+};
+export type PurchasedMinAggregateOutputType = {
+    id: number | null;
+    userId: number | null;
+    products: string | null;
+    date: string | null;
+};
+export type PurchasedMaxAggregateOutputType = {
+    id: number | null;
+    userId: number | null;
+    products: string | null;
+    date: string | null;
+};
+export type PurchasedCountAggregateOutputType = {
+    id: number;
+    userId: number;
+    products: number;
+    date: number;
+    _all: number;
+};
+export type PurchasedAvgAggregateInputType = {
+    id?: true;
+    userId?: true;
+};
+export type PurchasedSumAggregateInputType = {
+    id?: true;
+    userId?: true;
+};
+export type PurchasedMinAggregateInputType = {
+    id?: true;
+    userId?: true;
+    products?: true;
+    date?: true;
+};
+export type PurchasedMaxAggregateInputType = {
+    id?: true;
+    userId?: true;
+    products?: true;
+    date?: true;
+};
+export type PurchasedCountAggregateInputType = {
+    id?: true;
+    userId?: true;
+    products?: true;
+    date?: true;
+    _all?: true;
+};
+export type PurchasedAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which purchased to aggregate.
+     */
+    where?: Prisma.purchasedWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of purchaseds to fetch.
+     */
+    orderBy?: Prisma.purchasedOrderByWithRelationInput | Prisma.purchasedOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.purchasedWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` purchaseds from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` purchaseds.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned purchaseds
+    **/
+    _count?: true | PurchasedCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: PurchasedAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: PurchasedSumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: PurchasedMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: PurchasedMaxAggregateInputType;
+};
+export type GetPurchasedAggregateType<T extends PurchasedAggregateArgs> = {
+    [P in keyof T & keyof AggregatePurchased]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregatePurchased[P]> : Prisma.GetScalarType<T[P], AggregatePurchased[P]>;
+};
+export type purchasedGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.purchasedWhereInput;
+    orderBy?: Prisma.purchasedOrderByWithAggregationInput | Prisma.purchasedOrderByWithAggregationInput[];
+    by: Prisma.PurchasedScalarFieldEnum[] | Prisma.PurchasedScalarFieldEnum;
+    having?: Prisma.purchasedScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: PurchasedCountAggregateInputType | true;
+    _avg?: PurchasedAvgAggregateInputType;
+    _sum?: PurchasedSumAggregateInputType;
+    _min?: PurchasedMinAggregateInputType;
+    _max?: PurchasedMaxAggregateInputType;
+};
+export type PurchasedGroupByOutputType = {
+    id: number;
+    userId: number;
+    products: string;
+    date: string;
+    _count: PurchasedCountAggregateOutputType | null;
+    _avg: PurchasedAvgAggregateOutputType | null;
+    _sum: PurchasedSumAggregateOutputType | null;
+    _min: PurchasedMinAggregateOutputType | null;
+    _max: PurchasedMaxAggregateOutputType | null;
+};
+type GetPurchasedGroupByPayload<T extends purchasedGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<PurchasedGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof PurchasedGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], PurchasedGroupByOutputType[P]> : Prisma.GetScalarType<T[P], PurchasedGroupByOutputType[P]>;
+}>>;
+export type purchasedWhereInput = {
+    AND?: Prisma.purchasedWhereInput | Prisma.purchasedWhereInput[];
+    OR?: Prisma.purchasedWhereInput[];
+    NOT?: Prisma.purchasedWhereInput | Prisma.purchasedWhereInput[];
+    id?: Prisma.IntFilter<"purchased"> | number;
+    userId?: Prisma.IntFilter<"purchased"> | number;
+    products?: Prisma.StringFilter<"purchased"> | string;
+    date?: Prisma.StringFilter<"purchased"> | string;
+    buyer?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>;
+};
+export type purchasedOrderByWithRelationInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+    products?: Prisma.SortOrder;
+    date?: Prisma.SortOrder;
+    buyer?: Prisma.UserOrderByWithRelationInput;
+};
+export type purchasedWhereUniqueInput = Prisma.AtLeast<{
+    id?: number;
+    AND?: Prisma.purchasedWhereInput | Prisma.purchasedWhereInput[];
+    OR?: Prisma.purchasedWhereInput[];
+    NOT?: Prisma.purchasedWhereInput | Prisma.purchasedWhereInput[];
+    userId?: Prisma.IntFilter<"purchased"> | number;
+    products?: Prisma.StringFilter<"purchased"> | string;
+    date?: Prisma.StringFilter<"purchased"> | string;
+    buyer?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>;
+}, "id" | "id">;
+export type purchasedOrderByWithAggregationInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+    products?: Prisma.SortOrder;
+    date?: Prisma.SortOrder;
+    _count?: Prisma.purchasedCountOrderByAggregateInput;
+    _avg?: Prisma.purchasedAvgOrderByAggregateInput;
+    _max?: Prisma.purchasedMaxOrderByAggregateInput;
+    _min?: Prisma.purchasedMinOrderByAggregateInput;
+    _sum?: Prisma.purchasedSumOrderByAggregateInput;
+};
+export type purchasedScalarWhereWithAggregatesInput = {
+    AND?: Prisma.purchasedScalarWhereWithAggregatesInput | Prisma.purchasedScalarWhereWithAggregatesInput[];
+    OR?: Prisma.purchasedScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.purchasedScalarWhereWithAggregatesInput | Prisma.purchasedScalarWhereWithAggregatesInput[];
+    id?: Prisma.IntWithAggregatesFilter<"purchased"> | number;
+    userId?: Prisma.IntWithAggregatesFilter<"purchased"> | number;
+    products?: Prisma.StringWithAggregatesFilter<"purchased"> | string;
+    date?: Prisma.StringWithAggregatesFilter<"purchased"> | string;
+};
+export type purchasedCreateInput = {
+    products: string;
+    date: string;
+    buyer: Prisma.UserCreateNestedOneWithoutPurchasedInfoInput;
+};
+export type purchasedUncheckedCreateInput = {
+    id?: number;
+    userId: number;
+    products: string;
+    date: string;
+};
+export type purchasedUpdateInput = {
+    products?: Prisma.StringFieldUpdateOperationsInput | string;
+    date?: Prisma.StringFieldUpdateOperationsInput | string;
+    buyer?: Prisma.UserUpdateOneRequiredWithoutPurchasedInfoNestedInput;
+};
+export type purchasedUncheckedUpdateInput = {
+    id?: Prisma.IntFieldUpdateOperationsInput | number;
+    userId?: Prisma.IntFieldUpdateOperationsInput | number;
+    products?: Prisma.StringFieldUpdateOperationsInput | string;
+    date?: Prisma.StringFieldUpdateOperationsInput | string;
+};
+export type purchasedCreateManyInput = {
+    id?: number;
+    userId: number;
+    products: string;
+    date: string;
+};
+export type purchasedUpdateManyMutationInput = {
+    products?: Prisma.StringFieldUpdateOperationsInput | string;
+    date?: Prisma.StringFieldUpdateOperationsInput | string;
+};
+export type purchasedUncheckedUpdateManyInput = {
+    id?: Prisma.IntFieldUpdateOperationsInput | number;
+    userId?: Prisma.IntFieldUpdateOperationsInput | number;
+    products?: Prisma.StringFieldUpdateOperationsInput | string;
+    date?: Prisma.StringFieldUpdateOperationsInput | string;
+};
+export type PurchasedListRelationFilter = {
+    every?: Prisma.purchasedWhereInput;
+    some?: Prisma.purchasedWhereInput;
+    none?: Prisma.purchasedWhereInput;
+};
+export type purchasedOrderByRelationAggregateInput = {
+    _count?: Prisma.SortOrder;
+};
+export type purchasedCountOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+    products?: Prisma.SortOrder;
+    date?: Prisma.SortOrder;
+};
+export type purchasedAvgOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+};
+export type purchasedMaxOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+    products?: Prisma.SortOrder;
+    date?: Prisma.SortOrder;
+};
+export type purchasedMinOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+    products?: Prisma.SortOrder;
+    date?: Prisma.SortOrder;
+};
+export type purchasedSumOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+};
+export type purchasedCreateNestedManyWithoutBuyerInput = {
+    create?: Prisma.XOR<Prisma.purchasedCreateWithoutBuyerInput, Prisma.purchasedUncheckedCreateWithoutBuyerInput> | Prisma.purchasedCreateWithoutBuyerInput[] | Prisma.purchasedUncheckedCreateWithoutBuyerInput[];
+    connectOrCreate?: Prisma.purchasedCreateOrConnectWithoutBuyerInput | Prisma.purchasedCreateOrConnectWithoutBuyerInput[];
+    createMany?: Prisma.purchasedCreateManyBuyerInputEnvelope;
+    connect?: Prisma.purchasedWhereUniqueInput | Prisma.purchasedWhereUniqueInput[];
+};
+export type purchasedUncheckedCreateNestedManyWithoutBuyerInput = {
+    create?: Prisma.XOR<Prisma.purchasedCreateWithoutBuyerInput, Prisma.purchasedUncheckedCreateWithoutBuyerInput> | Prisma.purchasedCreateWithoutBuyerInput[] | Prisma.purchasedUncheckedCreateWithoutBuyerInput[];
+    connectOrCreate?: Prisma.purchasedCreateOrConnectWithoutBuyerInput | Prisma.purchasedCreateOrConnectWithoutBuyerInput[];
+    createMany?: Prisma.purchasedCreateManyBuyerInputEnvelope;
+    connect?: Prisma.purchasedWhereUniqueInput | Prisma.purchasedWhereUniqueInput[];
+};
+export type purchasedUpdateManyWithoutBuyerNestedInput = {
+    create?: Prisma.XOR<Prisma.purchasedCreateWithoutBuyerInput, Prisma.purchasedUncheckedCreateWithoutBuyerInput> | Prisma.purchasedCreateWithoutBuyerInput[] | Prisma.purchasedUncheckedCreateWithoutBuyerInput[];
+    connectOrCreate?: Prisma.purchasedCreateOrConnectWithoutBuyerInput | Prisma.purchasedCreateOrConnectWithoutBuyerInput[];
+    upsert?: Prisma.purchasedUpsertWithWhereUniqueWithoutBuyerInput | Prisma.purchasedUpsertWithWhereUniqueWithoutBuyerInput[];
+    createMany?: Prisma.purchasedCreateManyBuyerInputEnvelope;
+    set?: Prisma.purchasedWhereUniqueInput | Prisma.purchasedWhereUniqueInput[];
+    disconnect?: Prisma.purchasedWhereUniqueInput | Prisma.purchasedWhereUniqueInput[];
+    delete?: Prisma.purchasedWhereUniqueInput | Prisma.purchasedWhereUniqueInput[];
+    connect?: Prisma.purchasedWhereUniqueInput | Prisma.purchasedWhereUniqueInput[];
+    update?: Prisma.purchasedUpdateWithWhereUniqueWithoutBuyerInput | Prisma.purchasedUpdateWithWhereUniqueWithoutBuyerInput[];
+    updateMany?: Prisma.purchasedUpdateManyWithWhereWithoutBuyerInput | Prisma.purchasedUpdateManyWithWhereWithoutBuyerInput[];
+    deleteMany?: Prisma.purchasedScalarWhereInput | Prisma.purchasedScalarWhereInput[];
+};
+export type purchasedUncheckedUpdateManyWithoutBuyerNestedInput = {
+    create?: Prisma.XOR<Prisma.purchasedCreateWithoutBuyerInput, Prisma.purchasedUncheckedCreateWithoutBuyerInput> | Prisma.purchasedCreateWithoutBuyerInput[] | Prisma.purchasedUncheckedCreateWithoutBuyerInput[];
+    connectOrCreate?: Prisma.purchasedCreateOrConnectWithoutBuyerInput | Prisma.purchasedCreateOrConnectWithoutBuyerInput[];
+    upsert?: Prisma.purchasedUpsertWithWhereUniqueWithoutBuyerInput | Prisma.purchasedUpsertWithWhereUniqueWithoutBuyerInput[];
+    createMany?: Prisma.purchasedCreateManyBuyerInputEnvelope;
+    set?: Prisma.purchasedWhereUniqueInput | Prisma.purchasedWhereUniqueInput[];
+    disconnect?: Prisma.purchasedWhereUniqueInput | Prisma.purchasedWhereUniqueInput[];
+    delete?: Prisma.purchasedWhereUniqueInput | Prisma.purchasedWhereUniqueInput[];
+    connect?: Prisma.purchasedWhereUniqueInput | Prisma.purchasedWhereUniqueInput[];
+    update?: Prisma.purchasedUpdateWithWhereUniqueWithoutBuyerInput | Prisma.purchasedUpdateWithWhereUniqueWithoutBuyerInput[];
+    updateMany?: Prisma.purchasedUpdateManyWithWhereWithoutBuyerInput | Prisma.purchasedUpdateManyWithWhereWithoutBuyerInput[];
+    deleteMany?: Prisma.purchasedScalarWhereInput | Prisma.purchasedScalarWhereInput[];
+};
+export type purchasedCreateWithoutBuyerInput = {
+    products: string;
+    date: string;
+};
+export type purchasedUncheckedCreateWithoutBuyerInput = {
+    id?: number;
+    products: string;
+    date: string;
+};
+export type purchasedCreateOrConnectWithoutBuyerInput = {
+    where: Prisma.purchasedWhereUniqueInput;
+    create: Prisma.XOR<Prisma.purchasedCreateWithoutBuyerInput, Prisma.purchasedUncheckedCreateWithoutBuyerInput>;
+};
+export type purchasedCreateManyBuyerInputEnvelope = {
+    data: Prisma.purchasedCreateManyBuyerInput | Prisma.purchasedCreateManyBuyerInput[];
+    skipDuplicates?: boolean;
+};
+export type purchasedUpsertWithWhereUniqueWithoutBuyerInput = {
+    where: Prisma.purchasedWhereUniqueInput;
+    update: Prisma.XOR<Prisma.purchasedUpdateWithoutBuyerInput, Prisma.purchasedUncheckedUpdateWithoutBuyerInput>;
+    create: Prisma.XOR<Prisma.purchasedCreateWithoutBuyerInput, Prisma.purchasedUncheckedCreateWithoutBuyerInput>;
+};
+export type purchasedUpdateWithWhereUniqueWithoutBuyerInput = {
+    where: Prisma.purchasedWhereUniqueInput;
+    data: Prisma.XOR<Prisma.purchasedUpdateWithoutBuyerInput, Prisma.purchasedUncheckedUpdateWithoutBuyerInput>;
+};
+export type purchasedUpdateManyWithWhereWithoutBuyerInput = {
+    where: Prisma.purchasedScalarWhereInput;
+    data: Prisma.XOR<Prisma.purchasedUpdateManyMutationInput, Prisma.purchasedUncheckedUpdateManyWithoutBuyerInput>;
+};
+export type purchasedScalarWhereInput = {
+    AND?: Prisma.purchasedScalarWhereInput | Prisma.purchasedScalarWhereInput[];
+    OR?: Prisma.purchasedScalarWhereInput[];
+    NOT?: Prisma.purchasedScalarWhereInput | Prisma.purchasedScalarWhereInput[];
+    id?: Prisma.IntFilter<"purchased"> | number;
+    userId?: Prisma.IntFilter<"purchased"> | number;
+    products?: Prisma.StringFilter<"purchased"> | string;
+    date?: Prisma.StringFilter<"purchased"> | string;
+};
+export type purchasedCreateManyBuyerInput = {
+    id?: number;
+    products: string;
+    date: string;
+};
+export type purchasedUpdateWithoutBuyerInput = {
+    products?: Prisma.StringFieldUpdateOperationsInput | string;
+    date?: Prisma.StringFieldUpdateOperationsInput | string;
+};
+export type purchasedUncheckedUpdateWithoutBuyerInput = {
+    id?: Prisma.IntFieldUpdateOperationsInput | number;
+    products?: Prisma.StringFieldUpdateOperationsInput | string;
+    date?: Prisma.StringFieldUpdateOperationsInput | string;
+};
+export type purchasedUncheckedUpdateManyWithoutBuyerInput = {
+    id?: Prisma.IntFieldUpdateOperationsInput | number;
+    products?: Prisma.StringFieldUpdateOperationsInput | string;
+    date?: Prisma.StringFieldUpdateOperationsInput | string;
+};
+export type purchasedSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    userId?: boolean;
+    products?: boolean;
+    date?: boolean;
+    buyer?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["purchased"]>;
+export type purchasedSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    userId?: boolean;
+    products?: boolean;
+    date?: boolean;
+    buyer?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["purchased"]>;
+export type purchasedSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    userId?: boolean;
+    products?: boolean;
+    date?: boolean;
+    buyer?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["purchased"]>;
+export type purchasedSelectScalar = {
+    id?: boolean;
+    userId?: boolean;
+    products?: boolean;
+    date?: boolean;
+};
+export type purchasedOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "products" | "date", ExtArgs["result"]["purchased"]>;
+export type purchasedInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    buyer?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+};
+export type purchasedIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    buyer?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+};
+export type purchasedIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    buyer?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+};
+export type $purchasedPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "purchased";
+    objects: {
+        buyer: Prisma.$UserPayload<ExtArgs>;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        id: number;
+        userId: number;
+        products: string;
+        date: string;
+    }, ExtArgs["result"]["purchased"]>;
+    composites: {};
+};
+export type purchasedGetPayload<S extends boolean | null | undefined | purchasedDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$purchasedPayload, S>;
+export type purchasedCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<purchasedFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: PurchasedCountAggregateInputType | true;
+};
+export interface purchasedDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['purchased'];
+        meta: {
+            name: 'purchased';
+        };
+    };
+    /**
+     * Find zero or one Purchased that matches the filter.
+     * @param {purchasedFindUniqueArgs} args - Arguments to find a Purchased
+     * @example
+     * // Get one Purchased
+     * const purchased = await prisma.purchased.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends purchasedFindUniqueArgs>(args: Prisma.SelectSubset<T, purchasedFindUniqueArgs<ExtArgs>>): Prisma.Prisma__purchasedClient<runtime.Types.Result.GetResult<Prisma.$purchasedPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one Purchased that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {purchasedFindUniqueOrThrowArgs} args - Arguments to find a Purchased
+     * @example
+     * // Get one Purchased
+     * const purchased = await prisma.purchased.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends purchasedFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, purchasedFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__purchasedClient<runtime.Types.Result.GetResult<Prisma.$purchasedPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Purchased that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {purchasedFindFirstArgs} args - Arguments to find a Purchased
+     * @example
+     * // Get one Purchased
+     * const purchased = await prisma.purchased.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends purchasedFindFirstArgs>(args?: Prisma.SelectSubset<T, purchasedFindFirstArgs<ExtArgs>>): Prisma.Prisma__purchasedClient<runtime.Types.Result.GetResult<Prisma.$purchasedPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Purchased that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {purchasedFindFirstOrThrowArgs} args - Arguments to find a Purchased
+     * @example
+     * // Get one Purchased
+     * const purchased = await prisma.purchased.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends purchasedFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, purchasedFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__purchasedClient<runtime.Types.Result.GetResult<Prisma.$purchasedPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more Purchaseds that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {purchasedFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Purchaseds
+     * const purchaseds = await prisma.purchased.findMany()
+     *
+     * // Get first 10 Purchaseds
+     * const purchaseds = await prisma.purchased.findMany({ take: 10 })
+     *
+     * // Only select the `id`
+     * const purchasedWithIdOnly = await prisma.purchased.findMany({ select: { id: true } })
+     *
+     */
+    findMany<T extends purchasedFindManyArgs>(args?: Prisma.SelectSubset<T, purchasedFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$purchasedPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a Purchased.
+     * @param {purchasedCreateArgs} args - Arguments to create a Purchased.
+     * @example
+     * // Create one Purchased
+     * const Purchased = await prisma.purchased.create({
+     *   data: {
+     *     // ... data to create a Purchased
+     *   }
+     * })
+     *
+     */
+    create<T extends purchasedCreateArgs>(args: Prisma.SelectSubset<T, purchasedCreateArgs<ExtArgs>>): Prisma.Prisma__purchasedClient<runtime.Types.Result.GetResult<Prisma.$purchasedPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many Purchaseds.
+     * @param {purchasedCreateManyArgs} args - Arguments to create many Purchaseds.
+     * @example
+     * // Create many Purchaseds
+     * const purchased = await prisma.purchased.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends purchasedCreateManyArgs>(args?: Prisma.SelectSubset<T, purchasedCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many Purchaseds and returns the data saved in the database.
+     * @param {purchasedCreateManyAndReturnArgs} args - Arguments to create many Purchaseds.
+     * @example
+     * // Create many Purchaseds
+     * const purchased = await prisma.purchased.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many Purchaseds and only return the `id`
+     * const purchasedWithIdOnly = await prisma.purchased.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends purchasedCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, purchasedCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$purchasedPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a Purchased.
+     * @param {purchasedDeleteArgs} args - Arguments to delete one Purchased.
+     * @example
+     * // Delete one Purchased
+     * const Purchased = await prisma.purchased.delete({
+     *   where: {
+     *     // ... filter to delete one Purchased
+     *   }
+     * })
+     *
+     */
+    delete<T extends purchasedDeleteArgs>(args: Prisma.SelectSubset<T, purchasedDeleteArgs<ExtArgs>>): Prisma.Prisma__purchasedClient<runtime.Types.Result.GetResult<Prisma.$purchasedPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one Purchased.
+     * @param {purchasedUpdateArgs} args - Arguments to update one Purchased.
+     * @example
+     * // Update one Purchased
+     * const purchased = await prisma.purchased.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends purchasedUpdateArgs>(args: Prisma.SelectSubset<T, purchasedUpdateArgs<ExtArgs>>): Prisma.Prisma__purchasedClient<runtime.Types.Result.GetResult<Prisma.$purchasedPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more Purchaseds.
+     * @param {purchasedDeleteManyArgs} args - Arguments to filter Purchaseds to delete.
+     * @example
+     * // Delete a few Purchaseds
+     * const { count } = await prisma.purchased.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends purchasedDeleteManyArgs>(args?: Prisma.SelectSubset<T, purchasedDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Purchaseds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {purchasedUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Purchaseds
+     * const purchased = await prisma.purchased.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends purchasedUpdateManyArgs>(args: Prisma.SelectSubset<T, purchasedUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Purchaseds and returns the data updated in the database.
+     * @param {purchasedUpdateManyAndReturnArgs} args - Arguments to update many Purchaseds.
+     * @example
+     * // Update many Purchaseds
+     * const purchased = await prisma.purchased.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more Purchaseds and only return the `id`
+     * const purchasedWithIdOnly = await prisma.purchased.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends purchasedUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, purchasedUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$purchasedPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one Purchased.
+     * @param {purchasedUpsertArgs} args - Arguments to update or create a Purchased.
+     * @example
+     * // Update or create a Purchased
+     * const purchased = await prisma.purchased.upsert({
+     *   create: {
+     *     // ... data to create a Purchased
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Purchased we want to update
+     *   }
+     * })
+     */
+    upsert<T extends purchasedUpsertArgs>(args: Prisma.SelectSubset<T, purchasedUpsertArgs<ExtArgs>>): Prisma.Prisma__purchasedClient<runtime.Types.Result.GetResult<Prisma.$purchasedPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of Purchaseds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {purchasedCountArgs} args - Arguments to filter Purchaseds to count.
+     * @example
+     * // Count the number of Purchaseds
+     * const count = await prisma.purchased.count({
+     *   where: {
+     *     // ... the filter for the Purchaseds we want to count
+     *   }
+     * })
+    **/
+    count<T extends purchasedCountArgs>(args?: Prisma.Subset<T, purchasedCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], PurchasedCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a Purchased.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PurchasedAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PurchasedAggregateArgs>(args: Prisma.Subset<T, PurchasedAggregateArgs>): Prisma.PrismaPromise<GetPurchasedAggregateType<T>>;
+    /**
+     * Group by Purchased.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {purchasedGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends purchasedGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: purchasedGroupByArgs['orderBy'];
+    } : {
+        orderBy?: purchasedGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, purchasedGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPurchasedGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the purchased model
+     */
+    readonly fields: purchasedFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for purchased.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__purchasedClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    buyer<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the purchased model
+ */
+export interface purchasedFieldRefs {
+    readonly id: Prisma.FieldRef<"purchased", 'Int'>;
+    readonly userId: Prisma.FieldRef<"purchased", 'Int'>;
+    readonly products: Prisma.FieldRef<"purchased", 'String'>;
+    readonly date: Prisma.FieldRef<"purchased", 'String'>;
+}
+/**
+ * purchased findUnique
+ */
+export type purchasedFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the purchased
+     */
+    select?: Prisma.purchasedSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the purchased
+     */
+    omit?: Prisma.purchasedOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.purchasedInclude<ExtArgs> | null;
+    /**
+     * Filter, which purchased to fetch.
+     */
+    where: Prisma.purchasedWhereUniqueInput;
+};
+/**
+ * purchased findUniqueOrThrow
+ */
+export type purchasedFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the purchased
+     */
+    select?: Prisma.purchasedSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the purchased
+     */
+    omit?: Prisma.purchasedOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.purchasedInclude<ExtArgs> | null;
+    /**
+     * Filter, which purchased to fetch.
+     */
+    where: Prisma.purchasedWhereUniqueInput;
+};
+/**
+ * purchased findFirst
+ */
+export type purchasedFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the purchased
+     */
+    select?: Prisma.purchasedSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the purchased
+     */
+    omit?: Prisma.purchasedOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.purchasedInclude<ExtArgs> | null;
+    /**
+     * Filter, which purchased to fetch.
+     */
+    where?: Prisma.purchasedWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of purchaseds to fetch.
+     */
+    orderBy?: Prisma.purchasedOrderByWithRelationInput | Prisma.purchasedOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for purchaseds.
+     */
+    cursor?: Prisma.purchasedWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` purchaseds from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` purchaseds.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of purchaseds.
+     */
+    distinct?: Prisma.PurchasedScalarFieldEnum | Prisma.PurchasedScalarFieldEnum[];
+};
+/**
+ * purchased findFirstOrThrow
+ */
+export type purchasedFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the purchased
+     */
+    select?: Prisma.purchasedSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the purchased
+     */
+    omit?: Prisma.purchasedOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.purchasedInclude<ExtArgs> | null;
+    /**
+     * Filter, which purchased to fetch.
+     */
+    where?: Prisma.purchasedWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of purchaseds to fetch.
+     */
+    orderBy?: Prisma.purchasedOrderByWithRelationInput | Prisma.purchasedOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for purchaseds.
+     */
+    cursor?: Prisma.purchasedWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` purchaseds from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` purchaseds.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of purchaseds.
+     */
+    distinct?: Prisma.PurchasedScalarFieldEnum | Prisma.PurchasedScalarFieldEnum[];
+};
+/**
+ * purchased findMany
+ */
+export type purchasedFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the purchased
+     */
+    select?: Prisma.purchasedSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the purchased
+     */
+    omit?: Prisma.purchasedOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.purchasedInclude<ExtArgs> | null;
+    /**
+     * Filter, which purchaseds to fetch.
+     */
+    where?: Prisma.purchasedWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of purchaseds to fetch.
+     */
+    orderBy?: Prisma.purchasedOrderByWithRelationInput | Prisma.purchasedOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing purchaseds.
+     */
+    cursor?: Prisma.purchasedWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` purchaseds from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` purchaseds.
+     */
+    skip?: number;
+    distinct?: Prisma.PurchasedScalarFieldEnum | Prisma.PurchasedScalarFieldEnum[];
+};
+/**
+ * purchased create
+ */
+export type purchasedCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the purchased
+     */
+    select?: Prisma.purchasedSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the purchased
+     */
+    omit?: Prisma.purchasedOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.purchasedInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a purchased.
+     */
+    data: Prisma.XOR<Prisma.purchasedCreateInput, Prisma.purchasedUncheckedCreateInput>;
+};
+/**
+ * purchased createMany
+ */
+export type purchasedCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many purchaseds.
+     */
+    data: Prisma.purchasedCreateManyInput | Prisma.purchasedCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * purchased createManyAndReturn
+ */
+export type purchasedCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the purchased
+     */
+    select?: Prisma.purchasedSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the purchased
+     */
+    omit?: Prisma.purchasedOmit<ExtArgs> | null;
+    /**
+     * The data used to create many purchaseds.
+     */
+    data: Prisma.purchasedCreateManyInput | Prisma.purchasedCreateManyInput[];
+    skipDuplicates?: boolean;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.purchasedIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * purchased update
+ */
+export type purchasedUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the purchased
+     */
+    select?: Prisma.purchasedSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the purchased
+     */
+    omit?: Prisma.purchasedOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.purchasedInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a purchased.
+     */
+    data: Prisma.XOR<Prisma.purchasedUpdateInput, Prisma.purchasedUncheckedUpdateInput>;
+    /**
+     * Choose, which purchased to update.
+     */
+    where: Prisma.purchasedWhereUniqueInput;
+};
+/**
+ * purchased updateMany
+ */
+export type purchasedUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update purchaseds.
+     */
+    data: Prisma.XOR<Prisma.purchasedUpdateManyMutationInput, Prisma.purchasedUncheckedUpdateManyInput>;
+    /**
+     * Filter which purchaseds to update
+     */
+    where?: Prisma.purchasedWhereInput;
+    /**
+     * Limit how many purchaseds to update.
+     */
+    limit?: number;
+};
+/**
+ * purchased updateManyAndReturn
+ */
+export type purchasedUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the purchased
+     */
+    select?: Prisma.purchasedSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the purchased
+     */
+    omit?: Prisma.purchasedOmit<ExtArgs> | null;
+    /**
+     * The data used to update purchaseds.
+     */
+    data: Prisma.XOR<Prisma.purchasedUpdateManyMutationInput, Prisma.purchasedUncheckedUpdateManyInput>;
+    /**
+     * Filter which purchaseds to update
+     */
+    where?: Prisma.purchasedWhereInput;
+    /**
+     * Limit how many purchaseds to update.
+     */
+    limit?: number;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.purchasedIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * purchased upsert
+ */
+export type purchasedUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the purchased
+     */
+    select?: Prisma.purchasedSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the purchased
+     */
+    omit?: Prisma.purchasedOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.purchasedInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the purchased to update in case it exists.
+     */
+    where: Prisma.purchasedWhereUniqueInput;
+    /**
+     * In case the purchased found by the `where` argument doesn't exist, create a new purchased with this data.
+     */
+    create: Prisma.XOR<Prisma.purchasedCreateInput, Prisma.purchasedUncheckedCreateInput>;
+    /**
+     * In case the purchased was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.purchasedUpdateInput, Prisma.purchasedUncheckedUpdateInput>;
+};
+/**
+ * purchased delete
+ */
+export type purchasedDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the purchased
+     */
+    select?: Prisma.purchasedSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the purchased
+     */
+    omit?: Prisma.purchasedOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.purchasedInclude<ExtArgs> | null;
+    /**
+     * Filter which purchased to delete.
+     */
+    where: Prisma.purchasedWhereUniqueInput;
+};
+/**
+ * purchased deleteMany
+ */
+export type purchasedDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which purchaseds to delete
+     */
+    where?: Prisma.purchasedWhereInput;
+    /**
+     * Limit how many purchaseds to delete.
+     */
+    limit?: number;
+};
+/**
+ * purchased without action
+ */
+export type purchasedDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the purchased
+     */
+    select?: Prisma.purchasedSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the purchased
+     */
+    omit?: Prisma.purchasedOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.purchasedInclude<ExtArgs> | null;
+};
+export {};
+//# sourceMappingURL=purchased.d.ts.map
