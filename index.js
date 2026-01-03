@@ -129,8 +129,8 @@ app.post('/verify', async (req, res) => {
           </div>
 
           <div class="btn-container">
-            <a href="http://localhost:3000/success/${id}" class="btn btn-approve">APPROVE PAYMENT</a>
-            <a href="http://localhost:3000/failure/${id}" class="btn btn-deny">DENY REQUEST</a>
+            <a href="https://mega-be.vercel.app/success/${id}" class="btn btn-approve">APPROVE PAYMENT</a>
+            <a href="https://mega-be.vercel.app/failure/${id}" class="btn btn-deny">DENY REQUEST</a>
           </div>
         </div>
 
